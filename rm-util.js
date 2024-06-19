@@ -18,6 +18,10 @@ const argv = yargs(hideBin(process.argv))
   }).argv;
 
 const rmFileOrDirectory = (filePath, recursive = false, force = false) => {
+  if (!fs.existsSync(filePath)) {
+    console.error("\x1b[31mError: File does not exist.\x1b[0m");
+    return;
+  }
   try {
     fs.rmSync(filePath, { recursive, force });
     console.log("\x1b[32mSuccessfully removed file.\x1b[0m");
