@@ -14,12 +14,7 @@ const argv = yargs(hideBin(process.argv))
   .option("r", {
     alias: "recursive",
     type: "boolean",
-    description: "Removes directories recursively",
-  })
-  .option("f", {
-    alias: "force",
-    type: "boolean",
-    description: "Forces removal",
+    description: "Removes directories recursively and forcefully",
   }).argv;
 
 const rmFileOrDirectory = (filePath, recursive = false, force = false) => {
@@ -31,4 +26,4 @@ const rmFileOrDirectory = (filePath, recursive = false, force = false) => {
   }
 };
 
-rmFileOrDirectory(path.resolve(argv.file), argv.recursive || false, argv.force || false);
+rmFileOrDirectory(path.resolve(argv.file), argv.recursive || false, argv.recursive || false);
