@@ -8,5 +8,4 @@ node <filename> <file> [options]
 
 ### Options
 
-- `-r, --recursive`: Removes directories recursively.
-- `-f, --force`: Forces removal.
+- `-r, --recursive`: Removes directories recursively and forces removal.
