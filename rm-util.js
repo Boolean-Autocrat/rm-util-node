@@ -23,8 +23,9 @@ const rmFileOrDirectory = (filePath, recursive = false, force = false) => {
     return;
   }
   try {
+    const fileType = fs.lstatSync(filePath).isDirectory() ? "directory" : "file";
     fs.rmSync(filePath, { recursive, force });
-    console.log("\x1b[32mSuccessfully removed file.\x1b[0m");
+    console.log(`\x1b[32mSuccessfully removed ${fileType}.\x1b[0m`)
   } catch (err) {
     console.error(`\x1b[31mError: ${err.message}\x1b[0m`);
   }
